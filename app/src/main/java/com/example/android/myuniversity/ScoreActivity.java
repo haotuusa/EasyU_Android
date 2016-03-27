@@ -9,11 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 //import static android.Manifest.permission.READ_CONTACTS;
 
 //implements LoaderCallbacks<Cursor>
-public class SearchActivity extends AppCompatActivity  {
+public class ScoreActivity extends AppCompatActivity  {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -46,7 +47,7 @@ public class SearchActivity extends AppCompatActivity  {
 //        StateView = (AutoCompleteTextView) findViewById(R.id.state);
 //        populateAutoComplete();
 
-        SatScoreView = (EditText) findViewById(R.id.sat_score);
+        SatScoreView = (EditText) findViewById(R.id.score1);
 
 //        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 //            @Override
@@ -67,7 +68,7 @@ public class SearchActivity extends AppCompatActivity  {
             }
         });
 
-        mLoginFormView = findViewById(R.id.search_form);
+        mLoginFormView = findViewById(R.id.score_form);
         ProgressView = findViewById(R.id.search_progress);
     }
 
@@ -81,6 +82,35 @@ public class SearchActivity extends AppCompatActivity  {
         //TODO: Replace this with your own logic
         return password.length() > 4;
     }
+
+    //check the mode for which one to use
+    private enum enum_mode{ RANK, HIGHTOLOW, LOWTOHIGH, NONE }
+
+    enum_mode sortMode = enum_mode.NONE;
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_sort_rank:
+                if (checked) {
+                    sortMode = enum_mode.RANK;
+                    break;
+                }
+            case R.id.radio_sort_hightolow:
+                if (checked)
+                    sortMode = enum_mode.HIGHTOLOW;
+                    break;
+            case R.id.radio_sort_lowtohigh:
+                if(checked)
+                    sortMode = enum_mode.LOWTOHIGH;
+                    break;
+        }
+
+    }
+
 
     /**
      * Shows the progress UI and hides the login form.

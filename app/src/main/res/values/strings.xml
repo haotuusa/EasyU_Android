@@ -8,15 +8,37 @@
     <!-- Search -->
     <!-- Strings related to Search -->
     <string name="prompt_state">State</string>
-    <string name="prompt_sat_score">SAT Score (optional)</string>
+
+
     <string name="action_search">Search for University</string>
     <string name="action_search_short">Search</string>
 
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
+
+
+    <!-- Strings related to Score Activity-->
+    <string name="sat_score_text">Enter score</string>
+    <string name="sort_text">Sort my result based on</string>
+
+    <!-- For SAT String, test phase set as default -->
+    <string name="prompt_sat_reading">Critial Reading</string>
+    <string name="prompt_sat_math">Math</string>
+    <string name="prompt_sat_writing">Writing</string>
+    <!-- For ACT String -->
+    <string name="prompt_act_composite">Composite</string>
+    <string name="prompt_act_english">English</string>
+    <string name="prompt_act_math">Math</string>
+
+    <!-- for Radio button-->
+    <string name="sort_rank">College Ranking</string>
+    <string name="sort_hightolow">Require Score (high to low)</string>
+    <string name="sort_lowtohigh">Require Score (low to high)</string>
+
+    <!-- error message for validity check-->
+    <string name="error_invalid_score">Please type in numeric value</string>
+    <string name="error_off_range_score">Score out of range</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+
+
+
+
 </resources>
