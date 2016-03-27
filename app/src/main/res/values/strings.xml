@@ -2,22 +2,14 @@
     <string name="app_name">My University</string>
 
 
-
-
-
     <!-- Search -->
     <!-- Strings related to Search -->
-    <string name="prompt_state">State</string>
-
-
-    <string name="action_search">Search for University</string>
-    <string name="action_search_short">Search</string>
 
 
 
     <!-- Strings related to Score Activity-->
-    <string name="sat_score_text">Enter score</string>
-    <string name="sort_text">Sort my result based on</string>
+    <string name="sat_score_text">Enter SAT score</string>
+    <string name="act_socre_text">Enter ACT scores</string>
 
     <!-- For SAT String, test phase set as default -->
     <string name="prompt_sat_reading">Critial Reading</string>
@@ -29,16 +21,21 @@
     <string name="prompt_act_math">Math</string>
 
     <!-- for Radio button-->
+    <string name="sort_text">Sort my result based on</string>
     <string name="sort_rank">College Ranking</string>
     <string name="sort_hightolow">Require Score (high to low)</string>
     <string name="sort_lowtohigh">Require Score (low to high)</string>
+    <string name="action_search">Search for University</string>
 
     <!-- error message for validity check-->
-    <string name="error_invalid_score">Please type in numeric value</string>
-    <string name="error_off_range_score">Score out of range</string>
-    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_score">The field requires number from 0 to 800</string>
+    <string name="error_require_radio">Please select a sorting option</string>
 
 
+
+    <!-- String related to University Activity -->
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_university">Universities</string>
 
 
 </resources>
