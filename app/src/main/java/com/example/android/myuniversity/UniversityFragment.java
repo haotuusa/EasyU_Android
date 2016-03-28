@@ -1,6 +1,7 @@
 package com.example.android.myuniversity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -76,6 +77,29 @@ public class UniversityFragment extends Fragment {
 
 
 
+    public class FetchUniversityTask extends AsyncTask<String, Void, String[]> {
 
+
+        @Override
+        protected String[] doInBackground(String... params){
+
+
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String[] result){
+            if(result != null)
+            {
+                universityAdapter.clear();
+                for(String dayForecastStr: result){
+                    universityAdapter.add(dayForecastStr);
+                }
+            }
+        }
+
+    }
 
 }

@@ -38,8 +38,4 @@ public class UniversityDetailFragment extends Fragment {
     }
 
 
-
-
-    
-
 }

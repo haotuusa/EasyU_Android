@@ -156,7 +156,10 @@ public class SearchActivity extends AppCompatActivity  {
     }
 
 
-
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 
 
 
