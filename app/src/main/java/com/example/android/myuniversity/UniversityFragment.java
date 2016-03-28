@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.BufferedReader;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -75,13 +77,38 @@ public class UniversityFragment extends Fragment {
     }
 
 
-
-
+    // the inner class to get the university's data
     public class FetchUniversityTask extends AsyncTask<String, Void, String[]> {
 
 
         @Override
         protected String[] doInBackground(String... params){
+
+            // If there's no state's name, there's nothing to look up.  Verify size of params.
+            if (params.length == 0) {
+                return null;
+            }
+
+            // These two need to be declared outside the try catch
+            // so that they can be closed in the finally block.
+            HttpURLConnection urlConnection = null;
+            BufferedReader reader = null;
+
+            // Will contain the raw JSON response as a string.
+            String universityJsonStr = null;
+
+            try{
+                final String UNIVERSITY_BASE_URL =
+                        "http://haotuusa.github.io/university";
+
+                //for later update .state
+                final String STATE = ".state";
+
+
+
+            }
+
+
 
 
 
@@ -91,8 +118,7 @@ public class UniversityFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String[] result){
-            if(result != null)
-            {
+            if(result != null) {
                 universityAdapter.clear();
                 for(String dayForecastStr: result){
                     universityAdapter.add(dayForecastStr);
