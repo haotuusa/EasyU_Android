@@ -28,6 +28,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SearchActivity" />
         </activity>
+        <activity
+            android:name=".UniversityDetailActivity"
+            android:label="@string/title_activity_university_detail"
+            android:parentActivityName=".UniversityActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.myuniversity.UniversityActivity" />
+        </activity>
     </application>
 
 </manifest>

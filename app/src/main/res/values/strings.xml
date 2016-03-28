@@ -6,7 +6,6 @@
     <!-- Strings related to Search -->
 
 
-
     <!-- Strings related to Score Activity-->
     <string name="sat_score_text">Enter SAT score</string>
     <string name="act_socre_text">Enter ACT scores</string>
@@ -32,10 +31,10 @@
     <string name="error_require_radio">Please select a sorting option</string>
 
 
-
     <!-- String related to University Activity -->
     <string name="action_settings">Settings</string>
     <string name="title_activity_university">Universities</string>
+    <string name="title_activity_university_detail">UniversityDetailActivity</string>
 
 
 </resources>
