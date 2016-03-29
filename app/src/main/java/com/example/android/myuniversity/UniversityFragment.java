@@ -303,8 +303,10 @@ public class UniversityFragment extends Fragment {
             CollegeObject temp_College = filteredList.get(i);
             if(userScore[INDEX_SCORE1] < temp_College.getRequireSATReading() ||
                     userScore[INDEX_SCORE2] < temp_College.getRequireSATMath() ||
-                    userScore[INDEX_SCORE3] < temp_College.getRequireSATWriting())
+                    userScore[INDEX_SCORE3] < temp_College.getRequireSATWriting()) {
                 filteredList.remove(i);
+                i--;
+            }
         }
     }
 
