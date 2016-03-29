@@ -147,9 +147,12 @@ public class UniversityFragment extends Fragment {
                     }
                 };
 
+
+        String state = getActivity().getIntent().getStringExtra(Intent.EXTRA_TEXT);
+
         //for updating the list
         FetchUniversityTask myTask = new FetchUniversityTask();
-        myTask.execute("CA");
+        myTask.execute(state);
 
         // Get a reference to the ListView, and attach this adapter to it.
         ListView universityListView = (ListView) rootView.findViewById(R.id.listview_university);

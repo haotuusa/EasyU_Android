@@ -16,6 +16,8 @@ public class UniversityDetailFragment extends Fragment {
     public UniversityDetailFragment() {
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

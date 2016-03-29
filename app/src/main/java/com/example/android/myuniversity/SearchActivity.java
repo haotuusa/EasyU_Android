@@ -1,5 +1,6 @@
 package com.example.android.myuniversity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +8,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //import static android.Manifest.permission.READ_CONTACTS;
 
@@ -24,12 +27,14 @@ public class SearchActivity extends AppCompatActivity  {
     private EditText score2View;
     private EditText score3View;
 
+    private String state = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_university);
 
 
         // assign the EditText
@@ -100,11 +105,22 @@ public class SearchActivity extends AppCompatActivity  {
 //            return;
 //        }
 
+        if(state.isEmpty()) {
+            //show warning toast for no selection
+            Context context = getApplicationContext();
+            String errMsg = getString(R.string.error_require_state);
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, errMsg, duration);
+            toast.show();
+            return;
+        }
+
         Intent intent = new Intent(getApplicationContext(), UniversityActivity.class);
 //        String[] info = {score1Str, score2Str, score3Str, sortMode.toString()};
         String[] info = {score1Str, score2Str, score3Str};
         // use ACTION_ATTACH_DATA as key
         intent.putExtra(Intent.ACTION_ATTACH_DATA, info);
+        intent.putExtra(Intent.EXTRA_TEXT, state);
         startActivity(intent);
 
 
@@ -154,6 +170,24 @@ public class SearchActivity extends AppCompatActivity  {
 //        moveTaskToBack(true);
 //    }
 
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_WA:
+                if (checked) {
+                    state = "WA";
+                    break;
+                }
+            case R.id.radio_CA:
+                if (checked)
+                    state = "CA";
+                    break;
+
+        }
+    }
 
 
 

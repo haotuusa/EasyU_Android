@@ -26,6 +26,11 @@
     <string name="sort_lowtohigh">Require Score (low to high)</string>
     <string name="action_search">Search for University</string>
 
+    <!-- state radio button -->
+    <string name="WA">Washington</string>
+    <string name="CA">California</string>
+    <string name="error_require_state">Please select a state</string>
+
     <!-- error message for validity check-->
     <string name="error_invalid_score">The field requires number from 0 to 800</string>
     <string name="error_require_radio">Please select a sorting option</string>
