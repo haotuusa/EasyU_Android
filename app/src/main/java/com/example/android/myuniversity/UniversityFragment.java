@@ -26,6 +26,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -63,7 +65,7 @@ public class UniversityFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        inflater.inflate(R.menu.refresh, menu);
+        inflater.inflate(R.menu.sort_order, menu);
     }
 
     @Override
@@ -72,9 +74,15 @@ public class UniversityFragment extends Fragment {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_refresh) {
-            FetchUniversityTask myTask = new FetchUniversityTask();
-            myTask.execute("CA");
+        if (id == R.id.action_harderToEasier) {
+            Collections.sort(filteredList, new CompareBySATAverageHighToLow());
+            updateAdapter();
+
+            return true;
+        }
+        else if(id == R.id.action_easierToHarder){
+            Collections.sort(filteredList, new CompareBySATAverageLowToHigh());
+            updateAdapter();
 
             return true;
         }
@@ -213,7 +221,7 @@ public class UniversityFragment extends Fragment {
 
             try{
                 final String UNIVERSITY_BASE_URL =
-                        "http://haotuusa.github.io/university";
+                        "http://haotuusa.github.io/collegeData/university";
 
                 //for later update .state
                 final String STATE = ".state";
@@ -290,6 +298,7 @@ public class UniversityFragment extends Fragment {
             if(universities != null) {
                 universityList = universities;
                 FilterList();
+                Collections.sort(filteredList, new CompareBySATAverageHighToLow());
                 updateAdapter();
             }
         }
@@ -301,9 +310,10 @@ public class UniversityFragment extends Fragment {
         for(int i = 0; i < filteredList.size(); i++)
         {
             CollegeObject temp_College = filteredList.get(i);
-            if(userScore[INDEX_SCORE1] < temp_College.getRequireSATReading() ||
+            if((userScore[INDEX_SCORE1] < temp_College.getRequireSATReading() ||
                     userScore[INDEX_SCORE2] < temp_College.getRequireSATMath() ||
-                    userScore[INDEX_SCORE3] < temp_College.getRequireSATWriting()) {
+                    userScore[INDEX_SCORE3] < temp_College.getRequireSATWriting())||
+                    (temp_College.getRequireSAT()==0)) {
                 filteredList.remove(i);
                 i--;
             }
@@ -318,5 +328,49 @@ public class UniversityFragment extends Fragment {
         }
 
     }
+
+
+    private class CompareBySATAverageHighToLow implements Comparator<CollegeObject>
+    {
+        public CompareBySATAverageHighToLow(){}
+
+        @Override
+        public int compare(CollegeObject school1, CollegeObject school2)
+        {
+            int result = 0;
+            if(userTotal <= school2.getAverageSAT25())
+                result =  (int)school2.getRequireSAT() - (int)school1.getRequireSAT();
+            else if(userTotal<= school2.getAverageSAT())
+                result =  (int)school2.getAverageSAT25() - (int)school1.getAverageSAT25();
+            else if(userTotal <= school2.getAverageSAT75())
+                result =  (int)school2.getAverageSAT() - (int)school1.getAverageSAT();
+            else
+                result =  (int)school2.getAverageSAT75() - (int)school1.getAverageSAT75();
+            return result;
+        }
+    }
+
+
+    private class CompareBySATAverageLowToHigh implements Comparator<CollegeObject>
+    {
+        public CompareBySATAverageLowToHigh(){}
+
+        @Override
+        public int compare(CollegeObject school2, CollegeObject school1)
+        {
+            int result = 0;
+            if(userTotal <= school2.getAverageSAT25())
+                result =  (int)school2.getRequireSAT() - (int)school1.getRequireSAT();
+            else if(userTotal<= school2.getAverageSAT())
+                result =  (int)school2.getAverageSAT25() - (int)school1.getAverageSAT25();
+            else if(userTotal <= school2.getAverageSAT75())
+                result =  (int)school2.getAverageSAT() - (int)school1.getAverageSAT();
+            else
+                result =  (int)school2.getAverageSAT75() - (int)school1.getAverageSAT75();
+            return result;
+        }
+    }
+
+
 
 }

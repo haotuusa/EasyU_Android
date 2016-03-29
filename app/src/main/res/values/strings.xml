@@ -34,7 +34,7 @@
     <!-- String related to University Activity -->
     <string name="action_settings">Settings</string>
     <string name="title_activity_university">Universities</string>
-    <string name="title_activity_university_detail">UniversityDetailActivity</string>
+    <string name="title_activity_university_detail">University Stats</string>
 
 
 </resources>

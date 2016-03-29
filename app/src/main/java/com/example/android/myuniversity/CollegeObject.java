@@ -34,6 +34,7 @@ public class CollegeObject {
 
         try {
             for (int i = 0; i < SCORE_ID.length; i++) {
+
                 scoreData[i] = jsonCollege.getInt(SCORE_ID[i]);
             }
             collegeName = jsonCollege.getString(NAME_ID);
@@ -137,18 +138,18 @@ public class CollegeObject {
 
     @Override
     public String toString(){
-        return collegeName + "\n\nRequired SAT Reading Score : " + getRequireSATReading()
-                + "\nRequired SAT Math Score : " + getRequireSATMath()
-                + "\nRequired SAT Writing Score : " + getRequireSATWriting()
-                + "\nAverage SAT Test Score: " + getAverageSAT()
-                + "\nAverage lower 25 percent SAT Test Score: " + getAverageSAT25()
-                + "\nAverage higher 75 percent SAT Test Score: " + getAverageSAT75()
-                + "\n\nRequired ACT Composite Score : " + getRequireACTComposite()
-                + "\nRequired ACT English Score : " + getRequireACTEnglish()
-                + "\nRequired ACT Math Score : " + getRequireACTMath()
-                + "\nAverage ACT Test Score: " + getAverageACT()
-                + "\nAverage lower 25 percent ACT Test Score: " + getAverageACT25()
-                + "\nAverage higher 75 percent ACT Test Score: " + getAverageACT75();
+        return collegeName + "\n\nRequired SAT Reading Score : " + ((getRequireSATReading()==0)?"Not Required":getRequireSATReading())
+                + "\nRequired SAT Math Score : " + ((getRequireSATMath()==0)?"Not Required":getRequireSATMath())
+                + "\nRequired SAT Writing Score : " + ((getRequireSATWriting()==0)?"Not Required":getRequireSATWriting())
+                + "\nAverage SAT Test Score: " + ((getAverageSAT()==0)?"No Data":getAverageSAT())
+                + "\nAverage lower 25 percent SAT Test Score: " + ((getAverageSAT25()==0)?"No Data":getAverageSAT25())
+                + "\nAverage higher 75 percent SAT Test Score: " + ((getAverageSAT75()==0)?"No Data":getAverageSAT75())
+                + "\n\nRequired ACT Composite Score : " + ((getRequireACTComposite()==0)?"Not Required":getRequireACTComposite())
+                + "\nRequired ACT English Score : " + ((getRequireACTEnglish()==0)?"Not Required":getRequireACTEnglish())
+                + "\nRequired ACT Math Score : " + ((getRequireACTMath()==0)?"Not Required":getRequireACTMath())
+                + "\nAverage ACT Test Score: " + ((getAverageACT()==0)?"No Data":getAverageACT())
+                + "\nAverage lower 25 percent ACT Test Score: " + ((getAverageACT25()==0)?"No Data":getAverageACT25())
+                + "\nAverage higher 75 percent ACT Test Score: " + ((getAverageACT75()==0)?"No Data":getAverageACT75());
 
     }
 
