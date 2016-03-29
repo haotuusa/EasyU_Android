@@ -82,40 +82,40 @@
                     android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
             <!-- cheating line break-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="\n"/>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="\n"/>-->
 
-            <TextView android:id="@+id/sort_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:text="@string/sort_text"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="\n"/>
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <RadioButton android:id="@+id/radio_sort_rank"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sort_rank"
-                    android:onClick="onRadioButtonClicked"/>
-                <RadioButton android:id="@+id/radio_sort_hightolow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sort_hightolow"
-                    android:onClick="onRadioButtonClicked"/>
-                <RadioButton android:id="@+id/radio_sort_lowtohigh"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sort_lowtohigh"
-                    android:onClick="onRadioButtonClicked"/>
-            </RadioGroup>
+            <!--<TextView android:id="@+id/sort_text"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="25sp"-->
+                <!--android:text="@string/sort_text"/>-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="\n"/>-->
+            <!--<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical">-->
+                <!--<RadioButton android:id="@+id/radio_sort_rank"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/sort_rank"-->
+                    <!--android:onClick="onRadioButtonClicked"/>-->
+                <!--<RadioButton android:id="@+id/radio_sort_hightolow"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/sort_hightolow"-->
+                    <!--android:onClick="onRadioButtonClicked"/>-->
+                <!--<RadioButton android:id="@+id/radio_sort_lowtohigh"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/sort_lowtohigh"-->
+                    <!--android:onClick="onRadioButtonClicked"/>-->
+            <!--</RadioGroup>-->
 
             <!-- button event to next activity -->
             <Button

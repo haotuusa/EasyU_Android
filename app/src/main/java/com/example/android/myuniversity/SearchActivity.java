@@ -1,6 +1,5 @@
 package com.example.android.myuniversity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,27 +7,23 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 //import static android.Manifest.permission.READ_CONTACTS;
 
 //implements LoaderCallbacks<Cursor>
 public class SearchActivity extends AppCompatActivity  {
-
-    //check the mode for which one to use
-    private enum radio_btn{ RANK, HIGHTOLOW, LOWTOHIGH, NONE }
-    radio_btn sortMode = radio_btn.NONE;
-
+//
+//    //check the mode for which one to use
+//    private enum radio_btn{ RANK, HIGHTOLOW, LOWTOHIGH, NONE }
+//    radio_btn sortMode = radio_btn.NONE;
+//
 
     // UI references.
     private EditText score1View;
     private EditText score2View;
     private EditText score3View;
 
-    private View progressView;
-    private View scoreFormView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +56,6 @@ public class SearchActivity extends AppCompatActivity  {
         });
 
 
-        scoreFormView = findViewById(R.id.score_form);
-        progressView = findViewById(R.id.search_progress);
     }
 
 
@@ -96,23 +89,23 @@ public class SearchActivity extends AppCompatActivity  {
             score3View.requestFocus();
             return;
         }
-        // condition for no radio button select
-        if(sortMode == radio_btn.NONE) {
-            //show warning toast for no selection
-            Context context = getApplicationContext();
-            String errMsg = getString(R.string.error_require_radio);
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, errMsg, duration);
-            toast.show();
-            return;
-        }
+//        // condition for no radio button select
+//        if(sortMode == radio_btn.NONE) {
+//            //show warning toast for no selection
+//            Context context = getApplicationContext();
+//            String errMsg = getString(R.string.error_require_radio);
+//            int duration = Toast.LENGTH_SHORT;
+//            Toast toast = Toast.makeText(context, errMsg, duration);
+//            toast.show();
+//            return;
+//        }
 
         Intent intent = new Intent(getApplicationContext(), UniversityActivity.class);
-        String[] info = {score1Str, score2Str, score3Str, sortMode.toString()};
+//        String[] info = {score1Str, score2Str, score3Str, sortMode.toString()};
+        String[] info = {score1Str, score2Str, score3Str};
         // use ACTION_ATTACH_DATA as key
         intent.putExtra(Intent.ACTION_ATTACH_DATA, info);
         startActivity(intent);
-
 
 
     }
@@ -133,33 +126,33 @@ public class SearchActivity extends AppCompatActivity  {
         }
     }
 
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radio_sort_rank:
-                if (checked) {
-                    sortMode = radio_btn.RANK;
-                    break;
-                }
-            case R.id.radio_sort_hightolow:
-                if (checked)
-                    sortMode = radio_btn.HIGHTOLOW;
-                    break;
-            case R.id.radio_sort_lowtohigh:
-                if(checked)
-                    sortMode = radio_btn.LOWTOHIGH;
-                    break;
-        }
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
-    }
+//    public void onRadioButtonClicked(View view) {
+//        // Is the button now checked?
+//        boolean checked = ((RadioButton) view).isChecked();
+//
+//        // Check which radio button was clicked
+//        switch(view.getId()) {
+//            case R.id.radio_sort_rank:
+//                if (checked) {
+//                    sortMode = radio_btn.RANK;
+//                    break;
+//                }
+//            case R.id.radio_sort_hightolow:
+//                if (checked)
+//                    sortMode = radio_btn.HIGHTOLOW;
+//                    break;
+//            case R.id.radio_sort_lowtohigh:
+//                if(checked)
+//                    sortMode = radio_btn.LOWTOHIGH;
+//                    break;
+//        }
+//    }
+//
+//
+//    @Override
+//    public void onBackPressed() {
+//        moveTaskToBack(true);
+//    }
 
 
 
