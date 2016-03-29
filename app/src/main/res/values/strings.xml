@@ -7,8 +7,8 @@
 
 
     <!-- Strings related to Score Activity-->
-    <string name="sat_score_text">Enter SAT score</string>
-    <string name="act_socre_text">Enter ACT scores</string>
+    <string name="sat_score_text">Enter your scores</string>
+    <string name="act_socre_text">Enter ACT score</string>
 
     <!-- For SAT String, test phase set as default -->
     <string name="prompt_sat_reading">Critial Reading</string>
@@ -40,6 +40,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_university">Universities</string>
     <string name="title_activity_university_detail">University Stats</string>
-
+    <string name="title_activity_search">Search</string>
 
 </resources>

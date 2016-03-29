@@ -39,6 +39,7 @@ public class UniversityFragment extends Fragment {
     private ArrayAdapter<String> universityAdapter;
     private ArrayList<CollegeObject> universityList;
     private ArrayList<CollegeObject> filteredList;
+    private ArrayList<CollegeObject> noRequiredList;
     private double userTotal;
     private int userScore[] = new int[3];
     final int INDEX_SCORE1 = 0;
@@ -310,14 +311,20 @@ public class UniversityFragment extends Fragment {
 
     private void FilterList(){
         filteredList = universityList;
+        noRequiredList = new ArrayList<CollegeObject>();
         for(int i = 0; i < filteredList.size(); i++)
         {
             CollegeObject temp_College = filteredList.get(i);
             if((userScore[INDEX_SCORE1] < temp_College.getRequireSATReading() ||
                     userScore[INDEX_SCORE2] < temp_College.getRequireSATMath() ||
-                    userScore[INDEX_SCORE3] < temp_College.getRequireSATWriting())||
-                    (temp_College.getRequireSAT()==0)) {
+                    userScore[INDEX_SCORE3] < temp_College.getRequireSATWriting()))
+//                    || (temp_College.getRequireSAT()==0)) {
+            {
                 filteredList.remove(i);
+                i--;
+            }
+            else if((temp_College.getRequireSAT()==0)){
+                noRequiredList.add(filteredList.remove(i));
                 i--;
             }
         }

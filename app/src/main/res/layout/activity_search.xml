@@ -37,12 +37,18 @@
                 <!--android:inputType="textEmailAddress"-->
             </android.support.design.widget.TextInputLayout>
 
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_sat" />
+
             <TextView android:id="@+id/score_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
                 android:text="@string/sat_score_text"/>
-
             <!-- below are all textfield for 3 score input -->
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -120,7 +126,7 @@
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
             <RadioButton android:id="@+id/radio_WA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -142,6 +148,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/action_search"
                 android:textStyle="bold" />
+
 
 
         </LinearLayout>
